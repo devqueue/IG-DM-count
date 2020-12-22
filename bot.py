@@ -20,8 +20,8 @@ body_el.send_keys(Keys.PAGE_UP)
 
 
 # xpath for dm group
-Ayl_dm_Xpath = '/html/body/div[1]/section/div/div[2]/div/div/div[2]/div[2]/div/div[1]/div/div/*'
-dm_element = driver.find_elements_by_xpath(Ayl_dm_Xpath)
+laya_dm_Xpath = '/html/body/div[1]/section/div/div[2]/div/div/div[2]/div[2]/div/div[1]/div/div/*'
+dm_element = driver.find_elements_by_xpath(laya_dm_Xpath)
 print(type(dm_element))
 print(len(dm_element))
 # commented out 
