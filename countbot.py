@@ -2,7 +2,11 @@ from selenium import webdriver
 
 
 # PATH = "./assets/chromedriver"
-driver = webdriver.Chrome()
+url = 'http://127.0.0.1:4257'
+sessionid = 'd119dabfbd914429f17842301c316cfa'
+driver = webdriver.Remote(command_executor=url, desired_capabilities={})
+driver.close()   # this prevents the dummy browser
+driver.session_id = session_id
 
 # xpath for dm group
 laya_dm_Xpath = '/html/body/div[1]/section/div/div[2]/div/div/div[2]/div[2]/div/div[1]/div/div/*'
@@ -11,7 +15,10 @@ print(len(dm_element))
 
 
 
-
+'''
+http://127.0.0.1:42575
+d119dabfbd914429f17842301c316cfa
+'''
 
 
 
