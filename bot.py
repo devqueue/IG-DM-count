@@ -13,7 +13,7 @@ insta_login(driver, USERNAME, PASSWORD)
 driver.get("https://www.instagram.com/direct/inbox/")
 time.sleep(10)
 
-select_dm = input("Press enter after clicking a user")
+select_dm = input("Press enter after selecting a user")
 body_el = driver.find_element_by_css_selector('body')
 select_dm = input("Press enter to start scrolling")
 
