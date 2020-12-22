@@ -24,6 +24,14 @@ laya_dm_Xpath = '/html/body/div[1]/section/div/div[2]/div/div/div[2]/div[2]/div/
 dm_element = driver.find_elements_by_xpath(laya_dm_Xpath)
 print(type(dm_element))
 print(len(dm_element))
+
+
+
+
+
+
+
+
 # commented out 
 '''
 body_el = driver.find_element_by_css_selector('body')
