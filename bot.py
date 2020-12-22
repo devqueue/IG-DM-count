@@ -3,6 +3,9 @@ from selenium.webdriver.common.keys import Keys
 from conf import USERNAME, PASSWORD
 from login import insta_login
 from pynput.keyboard import Key, Listener
+from threads import terminate_thread
+import threading
+import ctypes
 import time
 
 # PATH = "./assets/chromedriver"
@@ -17,20 +20,23 @@ select_dm = input("Press enter after selecting a user")
 body_el = driver.find_element_by_css_selector('body')
 select_dm = input("Press enter to start scrolling")
 
-# Scrolling till esc is presssed
-keys = []
+# Scrolling untill inturrupted manully
+
+def scroll():
+    body_el.send_keys(Keys.PAGE_UP)
+    time.sleep(2)
+
+
+scroller = threading.Thread(target=scroll)
+
+
 def on_press(key):
-    keys.append(key)
+    print(key)
 
 def on_release(key):
-    global body_el
-    while True:
-        body_el.send_keys(Keys.PAGE_UP)
-        time.sleep(2)
-        if key == Key.esc:
-            break
-    return False
-
+    if key == Key.esc:
+        terminate_thread(scroller)
+        return False
 
 with Listener(on_press=on_press, on_release=on_release) as listener:
     listener.join()
@@ -41,6 +47,90 @@ laya_dm_Xpath = '/html/body/div[1]/section/div/div[2]/div/div/div[2]/div[2]/div/
 dm_element = driver.find_elements_by_xpath(laya_dm_Xpath)
 print(type(dm_element))
 print(len(dm_element))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
