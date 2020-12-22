@@ -1,107 +1,13 @@
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from conf import USERNAME, PASSWORD
-from login import insta_login
-from pynput.keyboard import Key, Listener
-from threads import terminate_thread
-import threading
-import ctypes
-import time
+
 
 # PATH = "./assets/chromedriver"
 driver = webdriver.Chrome()
 
-insta_login(driver, USERNAME, PASSWORD)
-
-driver.get("https://www.instagram.com/direct/inbox/")
-time.sleep(10)
-
-select_dm = input("Press enter after selecting a user")
-body_el = driver.find_element_by_css_selector('body')
-select_dm = input("Press enter to start scrolling")
-
-# Scrolling untill inturrupted manully
-
-def scroll():
-    body_el.send_keys(Keys.PAGE_UP)
-    time.sleep(2)
-
-
-scroller = threading.Thread(target=scroll)
-
-
-def on_press(key):
-    print(key)
-
-def on_release(key):
-    if key == Key.esc:
-        terminate_thread(scroller)
-        return False
-
-with Listener(on_press=on_press, on_release=on_release) as listener:
-    listener.join()
-
-
 # xpath for dm group
 laya_dm_Xpath = '/html/body/div[1]/section/div/div[2]/div/div/div[2]/div[2]/div/div[1]/div/div/*'
-dm_element = driver.find_elements_by_xpath(laya_dm_Xpath)
-print(type(dm_element))
+dms_el_list = driver.find_elements_by_xpath(laya_dm_Xpath)
 print(len(dm_element))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
