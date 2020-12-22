@@ -26,7 +26,8 @@ def on_release(key):
     global body_el
     while True:
         body_el.send_keys(Keys.PAGE_UP)
-        if key == Key.esc:
+        time.sleep(2)
+        if key == Key.INSERT:
             break
     return False
 
