@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from conf import USERNAME, PASSWORD
 from login import insta_login
+from pynput.keyboard import Key, Listener
 import time
 
 # PATH = "./assets/chromedriver"
@@ -16,7 +17,22 @@ select_dm = input("Press enter after clicking a user")
 body_el = driver.find_element_by_css_selector('body')
 select_dm = input("Press enter to start scrolling")
 
-body_el.send_keys(Keys.PAGE_UP)
+# Scrolling till esc is presssed
+keys = []
+def on_press(key):
+    keys.append(key)
+
+def on_release(key):
+    global body_el
+    while True:
+        body_el.send_keys(Keys.PAGE_UP)
+        if key == Key.esc:
+            break
+    return False
+
+
+with Listener(on_press=on_press, on_release=on_release) as listener:
+    listener.join()
 
 
 # xpath for dm group
@@ -24,7 +40,6 @@ laya_dm_Xpath = '/html/body/div[1]/section/div/div[2]/div/div/div[2]/div[2]/div/
 dm_element = driver.find_elements_by_xpath(laya_dm_Xpath)
 print(type(dm_element))
 print(len(dm_element))
-
 
 
 
