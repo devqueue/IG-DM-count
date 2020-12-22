@@ -8,7 +8,7 @@ import time
 options = webdriver.ChromeOptions()
 options.add_experimental_option("detach", True)
 
-driver = webdriver.Chrome( options=options)
+driver = webdriver.Chrome(options=options)
 print(driver.title)
 url = driver.command_executor._url  
 session_id = driver.session_id
@@ -28,3 +28,12 @@ print(session_id)
 for i in range(2000):
     body_el.send_keys(Keys.PAGE_UP)
     time.sleep(2)
+
+
+# paste this line by line in the terminal
+'''
+# xpath for dm group
+laya_dm_Xpath = '/html/body/div[1]/section/div/div[2]/div/div/div[2]/div[2]/div/div[1]/div/div/*'
+dms_el_list = driver.find_elements_by_xpath(laya_dm_Xpath)
+print(len(dms_el_list))
+'''
