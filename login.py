@@ -1,10 +1,11 @@
 from selenium import webdriver
-from conf import USERNAME, PASSWORD
 import time
 
-def insta_login()
-    # PATH = "./assets/chromedriver"
-    driver = webdriver.Chrome()
+# PATH = "./assets/chromedriver"
+# driver = webdriver.Chrome()  # optionally PATH can be passed to Chrome as an argument
+
+def insta_login(driver, USERNAME, PASSWORD):
+
     driver.get("https://www.instagram.com/accounts/login/")
     time.sleep(2)
 
@@ -21,7 +22,7 @@ def insta_login()
     submit_btn_el.click()
 
     # click save login info
-    time.sleep(10)
+    time.sleep(6)
     save_info = driver.find_element_by_css_selector('button[type=button]')
     save_info.click()
 
@@ -32,8 +33,6 @@ def insta_login()
     deny_notification.click()
 
     time.sleep(3)
-    driver.get("https://www.instagram.com/direct/inbox/")
-    time.sleep(10)
 
 
 
