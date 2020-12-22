@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from conf import USERNAME, PASSWORD
-from login import insta_login
+from loginbot import insta_login
 import time
 
 # PATH = "./assets/chromedriver"
