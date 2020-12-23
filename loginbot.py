@@ -1,8 +1,6 @@
 from selenium import webdriver
 import time
 
-# PATH = "./assets/chromedriver"
-# driver = webdriver.Chrome()  # optionally PATH can be passed to Chrome as an argument
 
 def insta_login(driver, USERNAME, PASSWORD):
 

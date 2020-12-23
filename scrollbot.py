@@ -4,14 +4,12 @@ from conf import USERNAME, PASSWORD
 from loginbot import insta_login
 import time
 
-# PATH = "/usr/bin/chromium"
-options = webdriver.ChromeOptions()
-options.add_experimental_option("detach", True)
 
-driver = webdriver.Chrome(options=options)
-print(driver.title)
-url = driver.command_executor._url  
-session_id = driver.session_id
+PATH = "./assets/chromedriver.exe"
+options = webdriver.ChromeOptions()
+options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
+
+driver = webdriver.Chrome(PATH, options=options)
 
 insta_login(driver, USERNAME, PASSWORD)
 
@@ -22,18 +20,7 @@ select_dm = input("Press enter after selecting a user")
 body_el = driver.find_element_by_css_selector('body')
 select_dm = input("Press enter to start scrolling")
 
-print(url)
-print(session_id)
 # Scrolling untill inturrupted manully
-for i in range(2000):
+for i in range(20000):
     body_el.send_keys(Keys.PAGE_UP)
-    time.sleep(2)
-
-
-# paste this line by line in the terminal
-'''
-# xpath for dm group
-laya_dm_Xpath = '/html/body/div[1]/section/div/div[2]/div/div/div[2]/div[2]/div/div[1]/div/div/*'
-dms_el_list = driver.find_elements_by_xpath(laya_dm_Xpath)
-print(len(dms_el_list))
-'''
+    time.sleep(0.7)

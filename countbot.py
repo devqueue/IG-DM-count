@@ -1,34 +1,16 @@
 from selenium import webdriver
 
 
-# PATH = "./assets/chromedriver"
-url = 'http://127.0.0.1:4257'
-sessionid = 'd119dabfbd914429f17842301c316cfa'
-driver = webdriver.Remote(command_executor=url, desired_capabilities={})
-driver.close()   # this prevents the dummy browser
-driver.session_id = session_id
+PATH = "./assets/chromedriver.exe"
+options = webdriver.ChromeOptions()
+options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
+
+driver = webdriver.Chrome(PATH, options=options)
 
 # xpath for dm group
-laya_dm_Xpath = '/html/body/div[1]/section/div/div[2]/div/div/div[2]/div[2]/div/div[1]/div/div/*'
-dms_el_list = driver.find_elements_by_xpath(laya_dm_Xpath)
-print(len(dm_element))
-
-
-
-'''
-http://127.0.0.1:42575
-d119dabfbd914429f17842301c316cfa
-'''
-
-
-
-
-
-
-
-
-
-
+aya_dm_Xpath = '/html/body/div[1]/section/div/div[2]/div/div/div[2]/div[2]/div/div[1]/div/div/*'
+dms_el_list = driver.find_elements_by_xpath(aya_dm_Xpath)
+print(len(dms_el_list))
 
 
 
