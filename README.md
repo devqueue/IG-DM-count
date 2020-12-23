@@ -25,7 +25,7 @@ remove the chrome.exe part so your final path should be `C:\Program Files (x86)\
 </div>
 
 5. Create a folder somewhere on your computer and copy-paste its path instead of the `<your dir>` filed in the next step
-6. Now again open cmd and run `chrome.exe --remote-debugging-port=9222 --user-data-dir=<your dir>`
+6. Now again open cmd and run `chrome.exe --remote-debugging-port=9222 --user-data-dir="<your dir>"`
 7. Run the `scrollbot.py` using this command --> `python -i scrollbot.py` The `-i` flag is not necessary but it will allow you to interact with your browser in real-time. Now once the bot clicks through all the buttons and redirects you to your inbox you will manually need to select an account whose dms you want to count. You will also see a promt that says `Press enter after selecting a user` hit enter and then hit enter again to start scrolling to the top.
 8. Once you reach the top of your dms you'll still have a repl `>>>` to interact with
 9. Open another instance of cmd in the same folder and run the `countbot.py`
